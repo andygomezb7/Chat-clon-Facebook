@@ -1,0 +1,199 @@
+<html>
+<head>
+<title>Chat estilo FB and G+ in Wortit</title>
+<script type="text/javascript">
+// principal #strcth
+// Agregar #nwCthIn a
+// Math.round(Math.random()*1000000)
+var ctrcht = {
+add: function(varid, ranplb){
+	$("#load").fadeIn(250);
+	var totalifSelf = $("#TdsLsChts div#chtInWb:visible").length;
+	var totalifWorf = 2;
+	var VrSxtstLCntndr = $('.'+varid+'_'+ranplb).length;
+	var VrSxtstLCntndrSgnd = $('.'+varid+'_17_'+ranplb).length;
+	$("#TdsLsChts div#chtInWb:hidden").appendTo("#TdsLsChts");
+	if(VrSxtstLCntndr){
+	if($('.'+varid+'_'+ranplb).css('display') == 'block'){
+		$('.'+varid+'_'+ranplb+' #tltcHt').addClass('parpadeo');
+    }else{ 
+    	if(totalifSelf > totalifWorf){ this.valEject(); }
+    $('.'+varid+'_'+ranplb).show();
+    }
+	}else{	
+	if(VrSxtstLCntndrSgnd){
+	$('.'+varid+'_17_'+ranplb).remove();
+	$('.'+varid+'_'+ranplb).show();
+    if(totalifSelf > totalifWorf){ this.valEject(); }
+	}else{
+	if(totalifSelf == totalifWorf || totalifSelf > totalifWorf){
+		$("#HyMsChtsAmg").show();
+		this.valEject();
+    }else{}
+$("#TdsLsChts").append('<div id="chtInWb" class="'+varid+'_'+ranplb+'"><div id="miniclose" onclick="ctrcht.baja('+varid+', '+ranplb+');" class="'+varid+'_1_'+ranplb+'"><div class="clearfix bgtnTl"><div id="bTnClsPrEMn" onclick="ctrcht.close('+varid+', '+ranplb+')">x</div><div id="titleKDFLesk">'+ranplb+' - '+varid+'</div></div></div><div class="'+varid+'_2_'+ranplb+'" id="EChtPrclDtdS"><div id="tltcHt" class="clearfix" onclick="ctrcht.baja('+varid+', '+ranplb+');">'+ranplb+' - '+varid+' <div id="clsCht" class="'+varid+'__'+ranplb+'" onclick="ctrcht.close('+varid+', '+ranplb+')">x</div></div><div id="cntChtInDv" class="'+varid+'_0_'+ranplb+'"><span>Contenido aqui...</span></div><div id="VlePrEscbrUnTxto"><input type="text" placeholder="Escribe algo aqui..." name="textOfVlxDT" class="'+varid+'" id="CntntWhrOrtxs"/></div></div></div>');
+   }
+  }
+$("#load").fadeOut(250);
+var lftDlBtns = $("#HyMsChtsAmg").left;
+var RghtDelBtns = $("#HyMsChtsAmg").top;
+$("#TdsLsChtsQeNeNtrn").css({left: lftDlBtns, top: RghtDelBtns});
+},
+baja: function(id, rand){
+if($('.'+id+'_1_'+rand).css('display') == 'block'){ $('.'+id+'_1_'+rand).hide(); $('.'+id+'_2_'+rand).show(); }else{ $('.'+id+'_1_'+rand).show(); $('.'+id+'_2_'+rand).hide(); }
+},
+close: function(id, rand){
+$('.'+id+'_'+rand).remove();
+},
+valEject: function(){
+$("#TdsLsChts div#chtInWb:nth-child(2):visible").hide(function(){ 
+var LclsparTietll = $(this).attr('class');
+var sdf5w6e5a6seks = LclsparTietll.split('_');
+var sdf5w6e5a6sek = sdf5w6e5a6seks[0];
+var CmbrLClsPrti = LclsparTietll.replace(sdf5w6e5a6sek+'_', sdf5w6e5a6sek+'_17_');
+var QtrTdprmevasrvr = LclsparTietll.replace(sdf5w6e5a6sek+'_', '');
+$("#TdsLsChtsQeNeNtrn").append('<div id="ChtOcltPrtI" class="'+CmbrLClsPrti+'"><div onclick="ctrcht.mstrchtocl('+sdf5w6e5a6sek+', '+QtrTdprmevasrvr+');"><span>'+QtrTdprmevasrvr+' - '+sdf5w6e5a6sek+'</span></div><div id="MstRchtOclt" onclick="ctrcht.remove('+sdf5w6e5a6sek+', '+QtrTdprmevasrvr+');">x</div></div>');
+});
+},
+mstrchtocl: function(id, rand){
+var toltOtrvPrti = $("#TdsLsChts div#chtInWb:visible").length;
+var vleIsTrsPrti = 2;
+	$("#TdsLsChts div#chtInWb:hidden").appendTo("#TdsLsChts");
+if(toltOtrvPrti == vleIsTrsPrti || toltOtrvPrti > vleIsTrsPrti){
+$("#HyMsChtsAmg").show();
+$("#TdsLsChtsQeNeNtrn ."+id+'_17_'+rand+"").remove();
+$('.'+id+'_'+rand).show();
+$("#TdsLsChts div#chtInWb:nth-child("+vleIsTrsPrti+"):visible").hide(function(){
+$("#TdsLsChts div#chtInWb:nth-child("+toltOtrvPrti+"):visible").appendTo('#TdsLsChts'); 
+	var LclsparTietll = $(this).attr('class');
+	var sdf5w6e5a6seks = LclsparTietll.split('_');
+    var sdf5w6e5a6sek = sdf5w6e5a6seks[0];
+	var CmbrLClsPrti = LclsparTietll.replace(sdf5w6e5a6sek+'_', sdf5w6e5a6sek+'_17_');
+	var QtrTdprmevasrvr = LclsparTietll.replace(sdf5w6e5a6sek+'_', '');
+	$("#TdsLsChtsQeNeNtrn").append('<div id="ChtOcltPrtI" class="'+CmbrLClsPrti+'"><div onclick="ctrcht.mstrchtocl('+sdf5w6e5a6sek+', '+QtrTdprmevasrvr+');"><span>'+QtrTdprmevasrvr+' - '+sdf5w6e5a6sek+'</span></div><div id="MstRchtOclt" onclick="ctrcht.remove('+sdf5w6e5a6sek+', '+QtrTdprmevasrvr+');">x</div></div>');
+});	
+}else{
+	$("#TdsLsChtsQeNeNtrn ."+id+'_17_'+rand+"").remove();
+$('.'+id+'_'+rand).show();	
+}
+},
+remove: function(id, rand){
+$("#TdsLsChtsQeNeNtrn ."+id+"_17_"+rand+"").remove();
+$("#TdsLsChts ."+id+"_"+rand+"").remove();
+},
+iGicteGc: function(){
+if($("#CntntDlLsUsrsXtrs").css('display') == 'none'){
+$("#CntntDlLsUsrsXtrs").show();
+}else{ $("#CntntDlLsUsrsXtrs").hide(); }
+},
+chtOfsl: function(){
+if($("#CntndrMnPrMdVr").css('display') == 'none'){
+$("#CntndrMnPrMdVr").show();
+$("#CntndrDlsUsrsOnlnPrCnvrsr").hide();
+}else{	
+$("#CntndrMnPrMdVr").hide();
+$("#CntndrDlsUsrsOnlnPrCnvrsr").show();
+}
+},
+}
+
+</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<style type="text/css">
+li, ul{list-style: none;}
+#load{ display: none; position: fixed; width: 100px; background: #000; color: #FFFFFF; height:42px; left:0px; top:0px; }
+.floatL{float: left;}
+.floatR{float:right;}
+
+#strcth{bottom: 2px;direction: ltr;height: 29px;right: 0;position: fixed;z-index: 300;}
+#nwCthIn{float: left;}
+#chtInWb{max-height: 315px;height: 223px;width: 241px;float: right;margin: 1px 8px 3px;border: 1px solid #CCCCCC;border-radius: 4px 4px 0px 0px;position: relative;}
+#TdsLsChtsQeNeNtrn{max-height: 212px;border-top: 1px solid rgba(0, 0, 0, .3);overflow: hidden;position: relative;width: 156px;height: 133px;overflow-y: auto;}
+#TdsLsChtsQeNeNtrn #ChtOcltPrtI{width: 91%;overflow: hidden;}
+#TdsLsChtsQeNeNtrn #ChtOcltPrtI:hover{cursor: pointer;background-color: #6d84b4;border-color: #3b5998;}
+#TdsLsChtsQeNeNtrn #ChtOcltPrtI div{float: left;padding: 6px 31px 0px;font-size: 12px;}
+#TdsLsChtsQeNeNtrn #ChtOcltPrtI #MstRchtOclt{float: right;padding: 2px 7px 3px;}
+#TdsLsChtsQeNeNtrn #ChtOcltPrtI #MstRchtOclt:hover{background: rgba(0, 0, 0, 0.16);}
+#chtInWb #miniclose{display: none;cursor:pointer;padding: 6px 4px 5px;background: #f2f2f4;background: #ebeef4;border: 1px solid rgba(29, 49, 91, .3);border-bottom: 0;-webkit-box-shadow: inset 0 1px rgba(255, 255, 255, .5);color: #333;font-weight: bold;height: 16px;outline: none;padding: 4px 5px 8px 5px;position: relative;z-index: 1;}
+#chtInWb #miniclose .bgtnTl{margin-left: 2px;}
+#chtInWb #miniclose .bgtnTl #bTnClsPrEMn{float: right;padding: 3px 8px 5px 8px;position: relative;top: -4px;right: -5px;}
+#chtInWb #VlePrEscbrUnTxto{width: 101%;margin: -2px -1px 0px -1px;}
+#chtInWb #VlePrEscbrUnTxto input{width: 100%;height: 33px;resize: none;}
+#chtInWb #miniclose .bgtnTl #bTnClsPrEMn:hover{cursor: pointer;background: rgba(0, 0, 0, 0.08);}
+#chtInWb #EChtPrclDtdS{display: block;bottom: 0;height: 487px;position: absolute;width: 100%;left: auto;right: 0;}
+#chtInWb #tltcHt{margin: -2px 0px 0px;background: #4b67a8 url(https://static.xx.fbcdn.net/rsrc.php/v2/yt/r/D47CF9k_yA8.png) repeat-x 0 -29px;border: 1px solid #2e4588;position: relative;-webkit-border-top-left-radius: 3px;-webkit-border-top-right-radius: 3px;border-bottom: none;cursor: pointer;background-color: rgba(0, 0, 0, .1);bottom: -2px;content: '';padding: 4px 8px 2px;font-weight: bold;color: #FFFFFF;}
+.typesholes{float: right;position: relative;}
+#chtInWb #tltcHt:after{}
+#chtInWb #tltcHt:before{background-color: rgba(0, 0, 0, .1);bottom: 0px;content: '';height: 1px;left: 0;position: absolute;right: 0;z-index: 1;}
+#chtInWb #tltcHt #clsCht{float: right;top: 0px;position: absolute;right: 0px;padding: 1px 8px 5px 8px;}
+#chtInWb #tltcHt #clsCht:hover{background:rgba(0, 0, 0, 0.15);cursor: pointer;}
+#chtInWb #cntChtInDv{font-size: 12px;line-height: 16px;height: 230px;margin: 5px 0px 0px;background-color: #edeff4;padding: 3px 5px 0px;border-right: 1px solid #CCCCCC;border-left: 1px solid #CCCCCC;}
+#HyMsChtsAmg{float: left;display:none;width: 170px;bottom: 6px;position: relative;left: -3px;margin-left: 9px;-webkit-box-shadow: none;z-index: 100;font-size: 12px;line-height: 16px;}
+#HyMsChtsAmg #CntntDlLsUsrsXtrs{display:none;max-height: 211px;left: auto;-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .3);position: absolute;right: 0;border-top: 1px solid rgba(0, 0, 0, .3);bottom: 29px;}
+#HyMsChtsAmg #iCndLWbst{float: right;padding: 8px 9px;background: #FFFFFF;z-index: 110;border: 1px solid #CCCCCC;}
+#HyMsChtsAmg #iCndLWbst:hover{cursor:pointer;background: #E2DFDF;}
+
+#UsrsQstnOnlnPrCnvrsr{max-height: 315px;height: 223px;width: 241px;float: right;margin: 1px 8px 3px;border: 1px solid #CCCCCC;border-radius: 4px 4px 0px 0px;position: relative;}
+#UsrsQstnOnlnPrCnvrsr #CntndrDlsUsrsOnlnPrCnvrsr{display: none;bottom: 0;height: 487px;position: absolute;width: 100%;left: auto;right: 0;}
+#UsrsQstnOnlnPrCnvrsr #CntndrDlsUsrsOnlnPrCnvrsr #TtlDlsUsrsOnlnPrCnvrsr{margin: -2px 0px 0px;background: #4b67a8 url(https://static.xx.fbcdn.net/rsrc.php/v2/yt/r/D47CF9k_yA8.png) repeat-x 0 -29px;border: 1px solid #2e4588;position: relative;-webkit-border-top-left-radius: 3px;-webkit-border-top-right-radius: 3px;border-bottom: none;cursor: pointer;background-color: rgba(0, 0, 0, .1);bottom: -2px;content: '';padding: 4px 8px 2px;font-weight: bold;color: #FFFFFF;}
+#UsrsQstnOnlnPrCnvrsr #CntndrDlsUsrsOnlnPrCnvrsr #CntndrOfclDlsUsrsOnlnPrCnvrsr{font-size: 12px;line-height: 16px;height: 230px;margin: 5px 0px 0px;background-color: #edeff4;padding: 3px 0px 0px;border-right: 1px solid #CCCCCC;border-left: 1px solid #CCCCCC;}
+#UsrsQstnOnlnPrCnvrsr #CntndrDlsUsrsOnlnPrCnvrsr #CntndrOfclDlsUsrsOnlnPrCnvrsr li{float: left;width: 100%;}
+#UsrsQstnOnlnPrCnvrsr #CntndrDlsUsrsOnlnPrCnvrsr #CntndrOfclDlsUsrsOnlnPrCnvrsr li a{color: #333;display: block;height: 28px;line-height: 28px;padding: 2px 8px 2px 5px;position: relative;}
+#UsrsQstnOnlnPrCnvrsr #CntndrDlsUsrsOnlnPrCnvrsr #CntndrOfclDlsUsrsOnlnPrCnvrsr li a:hover{background: rgba(0, 0, 0, 0.09);cursor: pointer;}
+#UsrsQstnOnlnPrCnvrsr #CntndrMnPrMdVr{display: block;cursor: pointer;padding: 6px 4px 5px;background: #f2f2f4;background: #ebeef4;border: 1px solid rgba(29, 49, 91, .3);border-bottom: 0;-webkit-box-shadow: inset 0 1px rgba(255, 255, 255, .5);color: #333;font-weight: bold;height: 16px;outline: none;padding: 4px 5px 8px 5px;position: relative;z-index: 1;}
+#UsrsQstnOnlnPrCnvrsr #CntndrMnPrMdVr .clnDsVrsOtr{margin-left: 2px;}
+#UsrsQstnOnlnPrCnvrsr #CntndrMnPrMdVr .clnDsVrsOtr .clsDlmncnDlsusrOnln{float: right;padding: 3px 8px 5px 8px;position: relative;top: -4px;right: -5px;}
+.clearfix:after {clear: both;content: ".";display: block;font-size: 0;height: 0;line-height: 0;visibility: hidden;}
+
+
+.parpadeo{background:grey;border:: 1px solid white;box-shadow:0px 0px 10px white;-webkit-box-shadow:0px 0px 10px white;	-webkit-border-radius:0px 10px 0px 10px;	margin:100px auto;	animation: parpadeo 12s;-webkit-animation: parpadeo 12s; -moz-animation: parpadeo 12s;animation-iteration-count:infinite;-webkit-animation-iteration-count:infinite;-moz-animation-iteration-count:infinite;}
+ 
+
+  @keyframes parpadeo {	
+	0%	{background: #4b67a8 url(https://static.xx.fbcdn.net/rsrc.php/v2/yt/r/D47CF9k_yA8.png) repeat-x 0 -1px !important}
+	50%	{background: #4b67a8 url(https://static.xx.fbcdn.net/rsrc.php/v2/yt/r/D47CF9k_yA8.png) repeat-x 0 -29px!important}
+	100%{background: #4b67a8 url(https://static.xx.fbcdn.net/rsrc.php/v2/yt/r/D47CF9k_yA8.png) repeat-x 0 -1px!important}	
+	}
+		
+	@-webkit-keyframes parpadeo {	
+	0%	{background: #4b67a8 url(https://static.xx.fbcdn.net/rsrc.php/v2/yt/r/D47CF9k_yA8.png) repeat-x 0 -1px!important}
+	50%	{background: #4b67a8 url(https://static.xx.fbcdn.net/rsrc.php/v2/yt/r/D47CF9k_yA8.png) repeat-x 0 -29px!important}
+	100%{background: #4b67a8 url(https://static.xx.fbcdn.net/rsrc.php/v2/yt/r/D47CF9k_yA8.png) repeat-x 0 -1px!important}
+	
+	}
+</style>
+</head>
+<body>
+<div id="load">Cargando</div>
+
+<div id="strcth" class="clearfix">
+<div class="typesholes">
+<div class="typesholes">
+<div class="typesholes" id="TdsLsChts">
+
+<div id="UsrsQstnOnlnPrCnvrsr">
+<div id="CntndrMnPrMdVr" onclick="ctrcht.chtOfsl();"><div class="clnDsVrsOtr"><div>Chat</div></div></div>
+<div id="CntndrDlsUsrsOnlnPrCnvrsr">
+	<div id="TtlDlsUsrsOnlnPrCnvrsr" onclick="ctrcht.chtOfsl();">Chat</div>
+<div id="CntndrOfclDlsUsrsOnlnPrCnvrsr">
+<li><a onclick="ctrcht.add(1, 1711)"><div class="floatL" style="margin: 0px 4px 0px 0px;"><img src="https://scontent-a-atl.xx.fbcdn.net/hprofile-xfa1/v/t1.0-1/p32x32/10565267_749476485117308_1954320191924510802_n.jpg?oh=b29a528245327c737f68bcd14796301e&amp;oe=54891C22"></div> Usuario 1</a></li>
+<li><a onclick="ctrcht.add(2, 1423)"><div class="floatL" style="margin: 0px 4px 0px 0px;"><img src="https://scontent-a-atl.xx.fbcdn.net/hprofile-xfa1/v/t1.0-1/p32x32/10565267_749476485117308_1954320191924510802_n.jpg?oh=b29a528245327c737f68bcd14796301e&amp;oe=54891C22"></div> Usuario 2</a></li>
+<li><a onclick="ctrcht.add(3, 2388)"><div class="floatL" style="margin: 0px 4px 0px 0px;"><img src="https://scontent-a-atl.xx.fbcdn.net/hprofile-xfa1/v/t1.0-1/p32x32/10565267_749476485117308_1954320191924510802_n.jpg?oh=b29a528245327c737f68bcd14796301e&amp;oe=54891C22"></div> Usuario 3</a></li>
+<li><a onclick="ctrcht.add(4, 1023)"><div class="floatL" style="margin: 0px 4px 0px 0px;"><img src="https://scontent-a-atl.xx.fbcdn.net/hprofile-xfa1/v/t1.0-1/p32x32/10565267_749476485117308_1954320191924510802_n.jpg?oh=b29a528245327c737f68bcd14796301e&amp;oe=54891C22"></div> Usuario 4</a></li>
+<li><a onclick="ctrcht.add(5, 7414)"><div class="floatL" style="margin: 0px 4px 0px 0px;"><img src="https://scontent-a-atl.xx.fbcdn.net/hprofile-xfa1/v/t1.0-1/p32x32/10565267_749476485117308_1954320191924510802_n.jpg?oh=b29a528245327c737f68bcd14796301e&amp;oe=54891C22"></div> Usuario 5</a></li>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+<div id="HyMsChtsAmg">
+<div id="CntntDlLsUsrsXtrs">
+<div style="max-height: 211px;"><div style="border-bottom: 1px solid rgba(0, 0, 0, .3);"><div style="height: 88px;border: 1px solid rgba(29, 49, 91, .3);overflow-x: hidden;
+overflow-y: auto;background-color: #fff;position: relative;border-width: 0 1px;"><div id="TdsLsChtsQeNeNtrn"></div></div></div></div></div>
+<div id="iCndLWbst" onclick="ctrcht.iGicteGc();">/+</div></div>
+</div>
+
+</body>
+</html>
